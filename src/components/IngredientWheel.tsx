@@ -4,6 +4,19 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Ingredient } from "@/db/schema";
 
+const INGREDIENT_IMAGES: Record<string, string> = {
+  "palmyra sprout": "/images/palmyra-tubers.jpg",
+  "sprouted ragi": "/images/sprouted-ragi.jpg",
+  "sprouted green gram": "/images/sprouted-green-gram.jpg",
+  "foxtail millet": "/images/foxtail-millet.jpg",
+  "chana dal": "/images/chana-dal.jpg",
+  "pumpkin seeds": "/images/pumpkin-seeds.jpg",
+  "cardamom": "/images/cardamom.jpg",
+  "amla": "/images/amla.jpg",
+  "dates": "/images/dates.jpg",
+  "sweet potato": "/images/sweet-potato.jpg",
+};
+
 export default function IngredientWheel({
   ingredients,
   centerImage,
@@ -22,6 +35,9 @@ export default function IngredientWheel({
 
   const current = ingredients[active];
   const point = pos(active);
+
+  const activeImage =
+    INGREDIENT_IMAGES[current?.name?.toLowerCase() ?? ""] || centerImage;
 
   return (
     <div>
@@ -66,9 +82,13 @@ export default function IngredientWheel({
           />
           <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-palm shadow-[0_18px_40px_-22px_rgba(20,48,21,0.95)]">
             <img
-              src={centerImage}
-              alt="Palmyra sprout"
-              className="h-full w-full object-cover"
+              key={activeImage}
+              src={activeImage}
+              alt={current.name}
+              onError={(e) => {
+                e.currentTarget.src = centerImage;
+              }}
+              className="h-full w-full object-cover transition-opacity duration-300"
             />
             <motion.div
               className="pointer-events-none absolute inset-0 bg-orange"
@@ -77,7 +97,7 @@ export default function IngredientWheel({
             />
           </div>
           <span className="eyebrow absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap text-palm">
-            Palmyra sprout
+            {current.name}
           </span>
         </div>
 
@@ -113,7 +133,7 @@ export default function IngredientWheel({
                   letterSpacing: "0.06em",
                 }}
               >
-                {words.map((w, wi) => (
+                {words.map((w) => (
                   <span key={w} className="block">
                     {w}
                   </span>
