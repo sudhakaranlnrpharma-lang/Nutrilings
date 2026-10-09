@@ -6,6 +6,7 @@ import { LangProvider } from "@/lib/i18n";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
+import FloatingBackground from "@/components/FloatingBackground";
 
 export const metadata: Metadata = {
   title: "Nutrilings — Palmyra Tuber Health Mix | Our Tradition, Your Health",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="antialiased">
         <LangProvider>
           <CartProvider>
+            <FloatingBackground />
             <Header />
             <main>{children}</main>
             <Footer />
