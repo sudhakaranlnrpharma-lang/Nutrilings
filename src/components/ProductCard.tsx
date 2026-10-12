@@ -18,8 +18,6 @@ export default function ProductCard({
 }) {
   const { add } = useCart();
   const { t } = useLang();
-  const off = Math.round(((product.mrp - product.price) / product.mrp) * 100);
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 30, rotate: index % 2 ? 0.8 : -0.8 }}
