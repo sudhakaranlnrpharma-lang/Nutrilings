@@ -29,40 +29,35 @@ export default function HeroCopy({
           {badge} · 10 whole ingredients
         </p>
       </Reveal>
-
-      <Reveal delay={0.06}>
-        {lang === "en" ? (
-          <h1 className="mt-4 font-display font-semibold leading-[0.86] tracking-[-0.03em] text-palm [font-size:clamp(3.1rem,11vw,8.4rem)]">
-            Palmyra
-            <br />
-            <span className="italic text-clay">tuber</span> health mix
-          </h1>
-        ) : (
-          <h1 className="mt-4 font-display font-semibold leading-[1.05] tracking-[-0.01em] text-palm [font-size:clamp(2.4rem,8vw,5.4rem)]">
-            {t("heroTitle")}
-          </h1>
-        )}
-      </Reveal>
-
-      <Reveal delay={0.12}>
-        <p className="mt-6 max-w-xl text-[1.02rem] leading-relaxed text-ink-2 sm:text-[1.1rem]">
-          {t("heroSub")}
-        </p>
-      </Reveal>
-
+<Reveal delay={0.06}>
+  <h1 className="mt-1 font-display font-bold leading-[1.1] tracking-[-0.02em] text-palm text-[size:clamp(2.5rem,6vw,4rem)]">
+    NUTRILINGS HEALTH MIX POWDER
+  </h1>
+</Reveal>
+      
       <Reveal delay={0.18}>
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <Link
+                    <Link
             href={`/product/${slug}`}
-            className="group flex items-center gap-2 rounded-full bg-orange px-7 py-4 text-[0.76rem] font-bold uppercase tracking-[0.18em] text-white transition-transform hover:-translate-y-0.5"
+            className="group flex items-center gap-4 rounded-full bg-orange px-6 py-3 text-[0.85rem] font-bold uppercase tracking-wide text-white transition-all hover:bg-[rgb(210,100,20)]"
           >
-            {t("buyNow")} · {money(price)}
+            <div className="flex flex-col items-start gap-1">
+              <div className="flex items-center gap-2">
+                <span>250G</span>
+                <span className="line-through text-white/70 text-xs tracking-normal">Rs 299</span>
+                <span className="text-xl">Rs 189</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="bg-white text-orange px-2 py-0.5 rounded-sm text-[10px] tracking-wider">37% OFFER</span>
+                <span className="text-[11px] text-white/90 tracking-wider">LIMITED OFFER</span>
+              </div>
+            </div>
             <ArrowRight
-              size={16}
+              size={24}
               className="transition-transform group-hover:translate-x-1"
             />
           </Link>
-          <Link
+           <Link
             href="/shop"
             className="rounded-full border border-palm px-7 py-4 text-[0.76rem] font-bold uppercase tracking-[0.18em] text-palm transition-colors hover:bg-palm hover:text-kraft"
           >
