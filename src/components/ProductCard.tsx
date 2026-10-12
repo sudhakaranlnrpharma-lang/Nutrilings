@@ -86,22 +86,16 @@ export default function ProductCard({
           </div>
 
         <div className="mt-auto pt-5">
-          <div className="flex items-end justify-between gap-3">
-            <div>
-              <span className="tabular font-display text-3xl text-palm">
-                {money(product.price)}
-              </span>
-              {off > 0 && (
-                <span className="tabular ml-2 text-sm text-ink-2 line-through">
-                  {money(product.mrp)}
-                </span>
-              )}
+                  <div className="flex flex-col gap-1 mb-2">
+            <div className="flex items-end gap-2">
+              <span className="tabular font-display text-[1.5rem] text-palm">Rs 189</span>
+              <span className="tabular text-sm text-ink/70 line-through mb-1">Rs 299</span>
             </div>
-            {off > 0 && (
-              <span className="eyebrow bg-gold/25 px-2 py-1 text-[0.6rem] text-clay">
-                {off}% off
-              </span>
-            )}
+            <div className="flex items-center gap-2">
+              <span className="bg-orange px-2 py-0.5 rounded-sm text-[10px] text-white tracking-wider font-bold">37% OFFER</span>
+              <span className="text-[10px] text-orange tracking-wider font-bold">LIMITED OFFER</span>
+            </div>
+          </div>
           </div>
 
           <button
