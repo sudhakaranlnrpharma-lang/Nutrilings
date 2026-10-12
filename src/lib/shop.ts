@@ -51,14 +51,39 @@ export const fallbackReviews = (): Review[] =>
 
 export async function getProducts(): Promise<Product[]> {
   try {
-    const rows = await db.select().from(products).orderBy(products.sortOrder);
-    if (rows.length) return rows;
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (!url || !key) return fallbackProducts();
+
+    // Supabase-la irundhu namma products data-va edukkurom
+    const res = await fetch(`${url}/rest/v1/products?select=*`, {
+      headers: {
+        'apikey': key,
+        'Authorization': `Bearer ${key}`
+      },
+      cache: 'no-store' // Eppovum pudhu data edukkum
+    });
+
+    const data = await res.json();
+
+    if (data && data.length > 0) {
+      // Namma database data-va website-ku yetha madhiri maathrom
+      return data.map((item: any) => ({
+        ...fallbackProducts()[0], // UI break aagama irukka dummy details
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        price: item.price,
+        image: item.image_url || fallbackProducts()[0].image
+      }));
+    }
     return fallbackProducts();
-  } catch {
+  } catch (error) {
     return fallbackProducts();
   }
+  
 }
-
 export async function getProduct(slug: string): Promise<Product | null> {
   try {
     const rows = await db
