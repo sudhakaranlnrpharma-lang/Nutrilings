@@ -73,6 +73,7 @@ export async function getProducts(): Promise<Product[]> {
         ...fallbackProducts()[0], // UI break aagama irukka dummy details
         id: item.id,
         name: item.name,
+        family: item.name,
         description: item.description,
         price: item.price,
         image: item.image_url || fallbackProducts()[0].image
