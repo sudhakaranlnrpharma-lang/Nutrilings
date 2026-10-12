@@ -96,35 +96,34 @@ export default function ProductCard({
             </div>
           </div>
         
-          <button
-            disabled={!product.available}
-            onClick={() =>
-              add({
-                slug: product.slug,
-                name: product.name,
-                packLabel: product.packLabel,
-                price: product.price,
-                mrp: product.mrp,
-                image: product.image,
-              })
-            }
-            className={`mt-4 flex w-full items-center justify-center gap-2 rounded-full py-3 text-[0.72rem] font-bold uppercase tracking-[0.18em] transition-all ${
-              product.available
-                ? "bg-palm text-kraft hover:bg-orange"
-                : "cursor-not-allowed border border-dashed border-ink/30 text-ink-2"
-            }`}
-          >
-            {product.available ? (
-              <>
-                <Check size={14} /> {t("addToCart")}
-              </>
-            ) : (
-              <>
-                <Clock size={13} /> {t("comingSoon")}
-              </>
-            )}
-          </button>
-        </div>
+                  <button
+          disabled={!product.available}
+          onClick={() =>
+            add({
+              slug: product.slug,
+              name: product.name,
+              packLabel: product.packLabel,
+              price: product.price,
+              mrp: product.mrp,
+              image: product.image,
+            })
+          }
+          className={`mt-4 flex w-full items-center justify-center gap-2 rounded-full py-3 text-[0.75rem] font-bold uppercase tracking-[0.18em] transition-colors ${
+            product.available
+              ? "bg-palm text-kraft hover:bg-orange"
+              : "cursor-not-allowed border border-dashed border-ink/30 text-ink-2"
+          }`}
+        >
+          {product.available ? (
+            <>
+              <Check size={14} /> {t("addToCart")}
+            </>
+          ) : (
+            <>
+              <Clock size={13} /> {t("comingSoon")}
+            </>
+          )}
+        </button>
       </div>
     </motion.article>
   );
