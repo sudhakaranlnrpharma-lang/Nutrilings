@@ -82,20 +82,20 @@ export default function ProductCard({
               <span className="eyebrow text-orange">Reviews coming soon</span>
             )}
           </div>
-
-        <div className="mt-auto pt-5">
-                  <div className="flex flex-col gap-1 mb-2">
-            <div className="flex items-end gap-2">
-              <span className="tabular font-display text-[1.5rem] text-palm">Rs 189</span>
-              <span className="tabular text-sm text-ink/70 line-through mb-1">Rs 299</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="bg-orange px-2 py-0.5 rounded-sm text-[10px] text-white tracking-wider font-bold">37% OFFER</span>
-              <span className="text-[10px] text-orange tracking-wider font-bold">LIMITED OFFER</span>
+     
+        <div className="mt-auto pt-3">
+            <div className="flex flex-col gap-1 mb-2">
+              <div className="flex items-end gap-2">
+                <span className="tabular font-display text-[1.5rem] text-palm">Rs 189</span>
+                <span className="tabular text-sm text-ink/70 line-through mb-1">Rs 299</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="bg-orange px-2 py-0.5 rounded-sm text-[10px] text-white tracking-wider font-bold">37% OFF</span>
+                <span className="text-[10px] text-orange tracking-wider font-bold">LIMITED OFFER</span>
+              </div>
             </div>
           </div>
-          </div>
-
+        
           <button
             disabled={!product.available}
             onClick={() =>
