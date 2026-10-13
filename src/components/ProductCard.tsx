@@ -89,10 +89,14 @@ export default function ProductCard({
                 <span className="tabular font-display text-[1.5rem] text-palm">Rs 189</span>
                 <span className="tabular text-sm text-ink/70 line-through mb-1">Rs 299</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="bg-orange px-2 py-0.5 rounded-sm text-[10px] text-white tracking-wider font-bold">37% OFF</span>
-                <span className="text-[10px] text-orange tracking-wider font-bold">LIMITED OFFER</span>
-              </div>
+                            <div className="flex items-center gap-2 mt-1">
+                <span className="bg-orange px-3 py-1.5 rounded-md text-[14px] text-white tracking-widest font-extrabold shadow-sm">
+                  37% OFFER
+                </span>
+                <span className="text-[12px] text-orange tracking-wider font-bold">
+                  LIMITED OFFER
+                </span>
+              </div> 
             </div>
           </div>
         
