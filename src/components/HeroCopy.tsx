@@ -24,9 +24,20 @@ export default function HeroCopy({
 
   return (
     <div className="relative z-10 lg:col-span-7">
-              {/* MASS HANGING TAG DESIGN */}
-        <div className="absolute -top-6 sm:-top-10 right-2 sm:right-12 w-28 bg-orange shadow-2xl rounded-b-3xl flex flex-col items-center pb-5 pt-6 z-50 border-b-4 border-[rgb(210,100,20)] transform rotate-[6deg] hover:rotate-[-2deg] transition-all duration-500 origin-top">
-          <div className="absolute -top-2 left-1/2 w-3 h-3 bg-[#e8e4db] rounded-full transform -translate-x-1/2 shadow-inner"></div>
+                      {/* MASS HANGING TAG DESIGN WITH SWING ANIMATION */}
+        <style>{`
+          @keyframes swing {
+            0% { transform: rotate(4deg); }
+            50% { transform: rotate(-4deg); }
+            100% { transform: rotate(4deg); }
+          }
+          .animate-swing {
+            animation: swing 2.5s ease-in-out infinite;
+            transform-origin: top center;
+          }
+        `}</style>
+        <div className="absolute top-0 sm:top-2 right-2 sm:right-12 w-28 bg-orange shadow-2xl rounded-b-3xl flex flex-col items-center pb-5 pt-7 z-50 border-b-4 border-[rgb(210,100,20)] animate-swing">
+          <div className="absolute top-2 left-1/2 w-3 h-3 bg-[#e8e4db] rounded-full transform -translate-x-1/2 shadow-inner"></div>
           <span className="text-3xl font-black text-white leading-none tracking-tighter">37%</span>
           <span className="text-sm font-extrabold text-white uppercase mt-1">OFFER</span>
           <span className="text-[9px] font-bold text-white/90 uppercase tracking-widest text-center mt-2 border-t border-white/30 pt-2 w-4/5 leading-tight">LIMITED<br/>OFFER</span>
