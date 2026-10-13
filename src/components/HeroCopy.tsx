@@ -24,7 +24,14 @@ export default function HeroCopy({
 
   return (
     <div className="relative z-10 lg:col-span-7">
-      <Reveal>
+              {/* MASS HANGING TAG DESIGN */}
+        <div className="absolute -top-6 sm:-top-10 right-2 sm:right-12 w-28 bg-orange shadow-2xl rounded-b-3xl flex flex-col items-center pb-5 pt-6 z-50 border-b-4 border-[rgb(210,100,20)] transform rotate-[6deg] hover:rotate-[-2deg] transition-all duration-500 origin-top">
+          <div className="absolute -top-2 left-1/2 w-3 h-3 bg-[#e8e4db] rounded-full transform -translate-x-1/2 shadow-inner"></div>
+          <span className="text-3xl font-black text-white leading-none tracking-tighter">37%</span>
+          <span className="text-sm font-extrabold text-white uppercase mt-1">OFFER</span>
+          <span className="text-[9px] font-bold text-white/90 uppercase tracking-widest text-center mt-2 border-t border-white/30 pt-2 w-4/5 leading-tight">LIMITED<br/>OFFER</span>
+        </div>
+       <Reveal>
         <p className="eyebrow text-orange">
           {badge} · 10 whole ingredients
         </p>
@@ -37,19 +44,15 @@ export default function HeroCopy({
       
       <Reveal delay={0.18}>
         <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <Link
+                              <Link
             href={`/product/${slug}`}
             className="group flex items-center gap-4 rounded-full bg-orange px-6 py-3 text-[0.85rem] font-bold uppercase tracking-wide text-white transition-all hover:bg-[rgb(210,100,20)]"
           >
-            <div className="flex flex-col items-start gap-1">
+            <div className="flex flex-col items-start">
               <div className="flex items-center gap-2">
-                <span>250G</span>
-                <span className="line-through text-white/70 text-xs tracking-normal">Rs 299</span>
-                <span className="text-xl">Rs 189</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="bg-white text-orange px-2 py-0.5 rounded-sm text-[10px] tracking-wider">37% OFFER</span>
-                <span className="text-[11px] text-white/90 tracking-wider">LIMITED OFFER</span>
+                <span className="text-white/90">250G</span>
+                <span className="line-through text-white/60 text-xs tracking-normal">Rs 299</span>
+                <span className="text-xl tracking-wide">Rs 189</span>
               </div>
             </div>
             <ArrowRight
