@@ -56,7 +56,7 @@ export default function HeroCopy({
       <Reveal delay={0.18}>
         <div className="mt-8 flex flex-wrap items-center gap-4">
                         <Link
-            href="/product/nutrilings-health-mix"
+            href="/product/palmyra-tuber-health-mix-250g"
             className="group flex items-center gap-4 rounded-full bg-orange px-6 py-3 text-[0.85rem] font-bold uppercase tracking-wide text-white transition-all hover:bg-[rgb(210,100,20)]"
           >
             <div className="flex flex-col items-start">
