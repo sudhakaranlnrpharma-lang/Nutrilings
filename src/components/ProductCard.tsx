@@ -68,19 +68,21 @@ export default function ProductCard({
               {product.name}
             </Link>
           </h3>
-          <div className="flex gap-2 shrink-0 mt-1 z-10 relative">
-  {['250g', '500g', '1kg'].map((v) => (
-    <button
-      key={v}
-      onClick={(e) => { e.preventDefault(); setVariant(v); }}
-      className={`eyebrow border px-2 py-1 text-[0.60rem] transition-all rounded-sm ${
-        variant === v ? 'border-orange text-orange bg-orange/10 font-bold' : 'border-ink/25 text-ink/70 hover:border-ink/50'
-      }`}
-    >
-      {v.toUpperCase()}
-    </button>
-  ))}
-</div>
+                    <div className="flex gap-3 shrink-0 mt-2 z-10 relative">
+            {['250g', '500g', '1kg'].map((v) => (
+              <button
+                key={v}
+                onClick={(e) => { e.preventDefault(); setVariant(v); }}
+                className={`border px-4 py-2 text-[0.85rem] tracking-wide transition-all rounded-md font-bold ${
+                  variant === v 
+                    ? 'border-orange bg-orange text-white shadow-md' 
+                    : 'border-ink/30 text-ink/70 hover:border-ink/60 hover:bg-ink/5'
+                }`}
+              >
+                {v.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
 
         <p className="mt-2 text-[0.86rem] leading-relaxed text-ink-2">
