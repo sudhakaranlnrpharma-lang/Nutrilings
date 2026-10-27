@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Clock } from "lucide-react";
 import type { Product } from "@/db/schema";
@@ -18,6 +19,13 @@ export default function ProductCard({
 }) {
   const { add } = useCart();
   const { t } = useLang();
+    const [variant, setVariant] = useState('250g');
+  const variantData = {
+    '250g': { price: 189, mrp: 299, slug: 'nutrilings-health-mix-250g', label: '250 G POUCH' },
+    '500g': { price: 369, mrp: 430, slug: 'nutrilings-health-mix-500g', label: '500 G POUCH' },
+    '1kg': { price: 699, mrp: 780, slug: 'nutrilings-health-mix-1kg', label: '1 KG POUCH' },
+  };
+  const current = variantData[variant as keyof typeof variantData];
   return (
     <motion.article
       initial={{ opacity: 0, y: 30, rotate: index % 2 ? 0.8 : -0.8 }}
@@ -27,7 +35,7 @@ export default function ProductCard({
       className="group flex flex-col border border-ink/20 bg-paper transition-shadow duration-300 hover:shadow-[0_26px_50px_-34px_rgba(20,48,21,0.85)]"
     >
       <Link
-        href={product.available ? `/product/${product.slug}` : "/#notify"}
+        href={product.available ? `/product/${current.slug}` : "/#notify"}
         className="relative block aspect-[4/3] overflow-hidden bg-kraft-2"
       >
         <img
@@ -56,13 +64,23 @@ export default function ProductCard({
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-display text-[1.35rem] leading-tight text-palm">
-            <Link href={product.available ? `/product/${product.slug}` : "/#notify"}>
+            <Link href={product.available ? `/product/${current.slug}` : "/#notify"}>
               {product.name}
             </Link>
           </h3>
-          <span className="eyebrow shrink-0 border border-ink/25 px-2 py-1 text-[0.58rem] text-ink-2">
-            {product.packLabel}
-          </span>
+          <div className="flex gap-2 shrink-0 mt-1 z-10 relative">
+  {['250g', '500g', '1kg'].map((v) => (
+    <button
+      key={v}
+      onClick={(e) => { e.preventDefault(); setVariant(v); }}
+      className={`eyebrow border px-2 py-1 text-[0.60rem] transition-all rounded-sm ${
+        variant === v ? 'border-orange text-orange bg-orange/10 font-bold' : 'border-ink/25 text-ink/70 hover:border-ink/50'
+      }`}
+    >
+      {v.toUpperCase()}
+    </button>
+  ))}
+</div>
         </div>
 
         <p className="mt-2 text-[0.86rem] leading-relaxed text-ink-2">
@@ -86,8 +104,8 @@ export default function ProductCard({
         <div className="mt-auto pt-3">
             <div className="flex flex-col gap-1 mb-2">
               <div className="flex items-end gap-2">
-                <span className="tabular font-display text-[1.5rem] text-palm">Rs 189</span>
-                <span className="tabular text-sm text-ink/70 line-through mb-1">Rs 299</span>
+                <span className="tabular font-display text-[1.5rem] text-palm">{current.price}</span>
+                <span className="tabular text-sm text-ink/70 line-through mb-1">Rs {current.mrp}</span>
               </div>
                             <div className="flex items-center gap-2 mt-1">
                 <span className="bg-orange px-3 py-1.5 rounded-md text-[14px] text-white tracking-widest font-extrabold shadow-sm">
@@ -104,12 +122,12 @@ export default function ProductCard({
           disabled={!product.available}
           onClick={() =>
             add({
-              slug: product.slug,
-              name: product.name,
-              packLabel: product.packLabel,
-              price: product.price,
-              mrp: product.mrp,
-              image: product.image,
+                        slug: current.slug,
+          name: product.name,
+          packLabel: current.label,
+          price: current.price,
+          mrp: current.mrp,
+          image: product.image,
             })
           }
           className={`mt-4 flex w-full items-center justify-center gap-2 rounded-full py-3 text-[0.75rem] font-bold uppercase tracking-[0.18em] transition-colors ${
