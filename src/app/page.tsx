@@ -78,7 +78,7 @@ export default async function HomePage() {
   const products = await getProducts();
   const reviews = await getReviews("palmyra");
   const heroProduct = products.find((p) => p.slug.includes("250g")) ?? products[0];
-  const featured = products.filter((p) => p.available).slice(0, 3);
+  const featured = products.filter((p) => p.available).slice(0, 1);
   const sample = reviews.slice(0, 3);
   const avgRating = reviews.length
     ? reviews.reduce((n, r) => n + r.rating, 0) / reviews.length
