@@ -27,12 +27,12 @@ export default function ProductCard({
   const p500 = allProducts.find(p => p.slug?.includes('500g'));
   const p1kg = allProducts.find(p => p.slug?.includes('1kg'));
 
-  const variantData = {
-    '250g': { price: product.price, mrp: product.mrp, slug: product.slug, label: product.pack_label },
-    '500g': p500 ? { price: p500.price, mrp: p500.mrp, slug: p500.slug, label: p500.pack_label } : { price: 369, mrp: 499, slug: 'nutrilings-health-mix-500g', label: '500 G POUCH' },
-    '1kg': p1kg ? { price: p1kg.price, mrp: p1kg.mrp, slug: p1kg.slug, label: p1kg.pack_label } : { price: 699, mrp: 799, slug: 'nutrilings-health-mix-1kg', label: '1 KG POUCH' },
+    const variantData = {
+    '250g': { price: product.price, mrp: product.mrp, slug: product.slug, label: '250 G POUCH' },
+    '500g': p500 ? { price: p500.price, mrp: p500.mrp, slug: p500.slug, label: '500 G POUCH' } : { price: 369, mrp: 499, slug: 'nutrilings-health-mix-500g', label: '500 G POUCH' },
+    '1kg': p1kg ? { price: p1kg.price, mrp: p1kg.mrp, slug: p1kg.slug, label: '1 KG POUCH' } : { price: 699, mrp: 799, slug: 'nutrilings-health-mix-1kg', label: '1 KG POUCH' },
   };
-
+  
   const current = variantData[variant as keyof typeof variantData];
   return (
     <motion.article
