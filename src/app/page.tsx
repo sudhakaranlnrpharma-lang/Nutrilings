@@ -103,7 +103,7 @@ export default async function HomePage() {
   price={heroProduct.price}
   mrp={heroProduct.mrp}
   badge={heroProduct.badge ?? "fresh batch"}
-  rating={rating}
+  rating={avgRating}
   reviewCount={reviews.length}
 />
           <div className="relative lg:col-span-5 lg:-ml-16">
