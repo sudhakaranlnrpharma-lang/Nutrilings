@@ -99,13 +99,13 @@ export default async function HomePage() {
 
         <div className="mx-auto grid max-w-[1240px] items-center gap-8 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-12 lg:pb-24 lg:pt-16 lg:pl-20">
           <HeroCopy
-            slug={heroProduct.slug}
-            price={heroProduct.price}
-            badge={heroProduct.badge ?? "Fresh batch"}
-            rating={avgRating}
-            reviewCount={reviews.length}
-          />
-
+  slug={heroProduct.slug}
+  price={heroProduct.price}
+  mrp={heroProduct.mrp}
+  badge={heroProduct.badge ?? "fresh batch"}
+  rating={rating}
+  reviewCount={reviews.length}
+/>
           <div className="relative lg:col-span-5 lg:-ml-16">
             <Reveal delay={0.1} y={40}>
               <div className="grain relative overflow-hidden border border-ink/25 shadow-[0_50px_80px_-50px_rgba(20,48,21,0.95)]">
