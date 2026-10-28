@@ -20,10 +20,10 @@ export default function ProductCard({
   const { add } = useCart();
   const { t } = useLang();
     const [variant, setVariant] = useState('250g');
-  const variantData = {
-    '250g': { price: 189, mrp: 299, slug: 'nutrilings-health-mix-250g', label: '250 G POUCH' },
-    '500g': { price: 369, mrp: 430, slug: 'nutrilings-health-mix-500g', label: '500 G POUCH' },
-    '1kg': { price: 699, mrp: 780, slug: 'nutrilings-health-mix-1kg', label: '1 KG POUCH' },
+    const variantData = {
+    '250g': { price: product.price, mrp: product.mrp, slug: product.slug, label: product.packLabel },
+    '500g': { price: 369, mrp: 499, slug: 'nutrilings-health-mix-500g', label: '500 G POUCH' },
+    '1kg': { price: 699, mrp: 799, slug: 'nutrilings-health-mix-1kg', label: '1 KG POUCH' },
   };
   const current = variantData[variant as keyof typeof variantData];
   return (
