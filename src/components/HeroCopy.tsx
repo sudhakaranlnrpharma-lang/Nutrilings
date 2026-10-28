@@ -6,16 +6,17 @@ import Reveal from "@/components/Reveal";
 import Stars from "@/components/Stars";
 import { useLang } from "@/lib/i18n";
 import { money } from "@/lib/catalog";
-
 export default function HeroCopy({
   slug,
   price,
+  mrp,
   badge,
   rating,
-  reviewCount,
+  reviewCount
 }: {
   slug: string;
   price: number;
+  mrp: number;
   badge: string;
   rating: number;
   reviewCount: number;
@@ -38,7 +39,7 @@ export default function HeroCopy({
         `}</style>
         <div className="absolute top-0 sm:top-2 right-2 sm:right-12 w-28 bg-orange shadow-2xl rounded-b-3xl flex flex-col items-center pb-5 pt-7 z-50 border-b-4 border-[rgb(210,100,20)] animate-swing">
           <div className="absolute top-2 left-1/2 w-3 h-3 bg-[#e8e4db] rounded-full transform -translate-x-1/2 shadow-inner"></div>
-          <span className="text-3xl font-black text-white leading-none tracking-tighter">37%</span>
+          <span className="text-3xl font-black text-white leading-none tracking-tighter">{Math.round(((mrp - price) / mrp) * 100)}%</span>
           <span className="text-sm font-extrabold text-white uppercase mt-1">OFFER</span>
           <span className="text-[9px] font-bold text-white/90 uppercase tracking-widest text-center mt-2 border-t border-white/30 pt-2 w-4/5 leading-tight">LIMITED<br/>OFFER</span>
         </div>
@@ -62,8 +63,8 @@ export default function HeroCopy({
             <div className="flex flex-col items-start">
               <div className="flex items-center gap-2">
                 <span className="text-white/90">250G</span>
-                <span className="line-through text-white/60 text-xs tracking-normal">Rs 299</span>
-                <span className="text-xl tracking-wide">Rs 189</span>
+                <span className="line-through text-white/60 text-sm tracking-normal">Rs {mrp}</span>
+                <span className="text-xl tracking-wide">RS {price}</span>
               </div>
             </div>
             <ArrowRight
