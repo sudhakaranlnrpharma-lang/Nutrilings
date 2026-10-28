@@ -111,7 +111,7 @@ export default function ProductCard({
               </div>
                             <div className="flex items-center gap-2 mt-1">
                 <span className="bg-orange px-3 py-1.5 rounded-md text-[14px] text-white tracking-widest font-extrabold shadow-sm">
-                  37% OFFER
+                  {product.badge}
                 </span>
                 <span className="text-[12px] text-orange tracking-wider font-bold">
                   LIMITED OFFER
