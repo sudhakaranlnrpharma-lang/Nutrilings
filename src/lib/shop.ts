@@ -76,6 +76,9 @@ export async function getProducts(): Promise<Product[]> {
         family: item.name,
         description: item.description,
         price: item.price,
+          mrp: item.mrp,
+          badge: item.badge,
+          packLabel: item.pack_label,
         image: item.image_url || fallbackProducts()[0].image
       }));
     }
